@@ -1,0 +1,35 @@
+.boton{
+background-color: orange;
+text-align: center;
+color: white;
+border: 1px solid rgb(190, 18, 18);
+.btn{
+    text-align: center;
+}
+
+&:hover{
+    filter: opacity(70%);
+}
+}
+
+
+
+
+.list-inline a{
+  text-decoration: none;
+  font-size: 28px;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  background: #f36303;
+  color: #f1f1f1;
+  border-radius: 50%;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, .5);
+  transition: all .4s ease-in-out;
+}
+
+.list-inline a:hover {
+    transform: scale(1.2);
+  }
+

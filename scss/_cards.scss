@@ -1,0 +1,55 @@
+    .card:hover {
+        filter: opacity(0.7);
+        transform: scale(1.04);
+      }
+      
+      .card{
+        display:block;
+        margin: 30px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+        
+      
+      .card-text{
+        font-style: italic;
+      }
+    
+    
+      .row{
+        margin:auto;
+        padding: 80px;
+        
+      }
+     
+      .card{
+        border-style: none;
+       
+      }
+    
+      .col{
+        transition: background-color 9s ease-out;
+      }
+    
+      .card-header{
+        color: orange;
+        background-color: rgb(75, 70, 70);
+      }
+    
+      .card-body{
+        color: #FF5B00;
+        background-color: #1a1919;
+       text-align:center;
+      }
+    
+      .btn{
+        background-color: orange;
+        border: none;
+      }
+    
+      .card-footer{
+        background-color: black;
+      }
+
+
+      
