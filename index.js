@@ -1,11 +1,65 @@
-let edad = parseInt(prompt("¿Eres mayor de edad?"));
+//Todo en porncentaje
 
-while(edad<18){
+const ahorro = 10 
+const cuotas12 = 1.21
+const cuotas18 = 1.32
+const cuotas24 = 1.65
 
-
-    edad = parseInt(prompt("Ingrese su edad"));
+//Funciones
+function interes (a,b){
+    precioInteres = a*b;
+    return `${precioInteres}`
 }
 
-let mensaje = edad >= 18 ? "Eres mayor de edad" : "No eres mayor de edad";
+function descuento(a,b){
+    precioDescuento = a-(a/b);
+    return `${precioDescuento}`
+}
 
-alert(mensaje);
+function numcuotas(a,b){
+    precioCuotas = a/b;
+    return `${precioCuotas}`
+}
+
+
+
+
+//Simulador
+let precioProducto = parseInt (prompt("Ingrese el precio del producto: "));
+
+while(precioProducto >0){
+    pregunta = prompt("¿Va a pagar en efectivo o con tarjeta?");
+ 
+    if(pregunta.toLowerCase() === "efectivo"){
+    alert(`Tendra un 10% de descuento y su precio final seria: $${descuento(precioProducto,ahorro)} `);
+    break;
+    }
+
+    else if(pregunta.toLowerCase() === "tarjeta"){
+    cuotas = parseInt (prompt(`En cuantas cuotas quiere abonar? \n12 --> ${(cuotas12*100)-100}% \n18 --> ${(cuotas18*100)-100}%  \n24 --> ${(cuotas24*100)-100}%` ));
+    switch(cuotas){
+        case 12:
+        precioFinal = parseInt((`${interes(precioProducto,cuotas12)}`));
+        mensaje = alert(`${cuotas} cuotas de $${numcuotas(precioFinal,cuotas)} = $${precioFinal}`);
+        break;
+
+        case 18:
+        precioFinal = parseInt((`${interes(precioProducto,cuotas18)}`));
+        mensaje = alert(`${cuotas} cuotas de $${numcuotas(precioFinal,cuotas)} = $${precioFinal}`);
+        break;
+
+        case 24:
+        precioFinal = parseInt((`${interes(precioProducto,cuotas24)}`));
+        mensaje = alert(`${cuotas} cuotas de $${numcuotas(precioFinal,cuotas)} = $${precioFinal}`);
+        break;
+
+        default:
+        cuotas = parseInt (prompt(`En cuantas cuotas quiere abonar? \n12 --> 35% \n18 --> 50% \n24 --> 65%`));
+        break;}
+    }
+
+    else{
+        break;}
+}
+
+alert("Vuelve a cargar la pagina con F5 y pon el precio del producto");
