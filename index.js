@@ -1,65 +1,62 @@
-//Todo en porncentaje
+class coffe{ //clase generadora de datos estas caracteristicas para el café
+    constructor(nombre, tipo, color, envio){
+        this.nombre =  nombre;
 
-const ahorro = 10 
-const cuotas12 = 1.21
-const cuotas18 = 1.32
-const cuotas24 = 1.65
+        this.tipo = tipo;
 
-//Funciones
-function interes (a,b){
-    precioInteres = a*b;
-    return `${precioInteres}`
-}
+        this.intensidad = color;
 
-function descuento(a,b){
-    precioDescuento = a-(a/b);
-    return `${precioDescuento}`
-}
-
-function numcuotas(a,b){
-    precioCuotas = a/b;
-    return `${precioCuotas}`
-}
-
-
-
-
-//Simulador
-let precioProducto = parseInt (prompt("Ingrese el precio del producto: "));
-
-while(precioProducto >0){
-    pregunta = prompt("¿Va a pagar en efectivo o con tarjeta?");
- 
-    if(pregunta.toLowerCase() === "efectivo"){
-    alert(`Tendra un 10% de descuento y su precio final seria: $${descuento(precioProducto,ahorro)} `);
-    break;
+        this.envio = envio;
     }
+} 
 
-    else if(pregunta.toLowerCase() === "tarjeta"){
-    cuotas = parseInt (prompt(`En cuantas cuotas quiere abonar? \n12 --> ${(cuotas12*100)-100}% \n18 --> ${(cuotas18*100)-100}%  \n24 --> ${(cuotas24*100)-100}%` ));
-    switch(cuotas){
-        case 12:
-        precioFinal = parseInt((`${interes(precioProducto,cuotas12)}`));
-        mensaje = alert(`${cuotas} cuotas de $${numcuotas(precioFinal,cuotas)} = $${precioFinal}`);
-        break;
+const cafe = [ //arrays
+     
+    {nombre:"el salvador",tipo:"muy fino", intensidad:"suave", envio:"a casa"},
 
-        case 18:
-        precioFinal = parseInt((`${interes(precioProducto,cuotas18)}`));
-        mensaje = alert(`${cuotas} cuotas de $${numcuotas(precioFinal,cuotas)} = $${precioFinal}`);
-        break;
+    {nombre:"colombia",tipo:"fino", intensidad:"medio", envio:"sucursal"},
 
-        case 24:
-        precioFinal = parseInt((`${interes(precioProducto,cuotas24)}`));
-        mensaje = alert(`${cuotas} cuotas de $${numcuotas(precioFinal,cuotas)} = $${precioFinal}`);
-        break;
+    {nombre:"mexico",tipo:"grano grueso", intensidad:"fuerte", envio:"a casa"},
 
-        default:
-        cuotas = parseInt (prompt(`En cuantas cuotas quiere abonar? \n12 --> 35% \n18 --> 50% \n24 --> 65%`));
-        break;}
-    }
+    {nombre:"brasil",tipo:"grano muy frueso", intensidad:"muy fuerte", envio:"sucursal"},
+];
 
-    else{
-        break;}
+//AGREGAR OPCIONES DE CAFE ARRAYS
+alert("¡Aquí encontraras tu café ideal!"); // alert para agregar opciones de café con las siguientes caracateristicas
+  
+    let nombre = prompt("origen del café");
+
+    let tipo = prompt("Tipo de molienda");
+
+    let intensidad = prompt("Tipo de intensidad");
+
+    let envio= prompt("Envio a sucursal o casa");
+
+    
+    let agregar = new coffe(nombre, tipo, intensidad, envio); 
+
+    cafe.unshift(agregar);
+    
+    alert(
+        `${nombre} fue agregado a la lista de tu café ideal`); 
+
+
+
+let busquedaNombre = prompt("Escoja el país de origen");
+
+let buscar = cafe.find(coffe => coffe.nombre === busquedaNombre.toLoweCase());
+
+
+if(buscar === undefined){
+    alert("Café no encontrado. Lo siento! ")
 }
+else{
+    let mensaje = (`Nombre: ${buscar.nombre}
 
-alert("Vuelve a cargar la pagina con F5 y pon el precio del producto");
+Tipo: ${buscar.tipo}
+
+Color: ${buscar.intensidad}
+
+Envio: ${buscar.envio}`);
+
+alert(mensaje);}
